@@ -60,7 +60,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
-  fileTemplates: resolveOwn('scripts/new-component/templates'),
+  fileTemplates: resolveApp('scripts/new-component/templates'),
 };
 
 // @remove-on-eject-begin
