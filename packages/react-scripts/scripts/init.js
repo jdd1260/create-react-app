@@ -41,6 +41,7 @@ module.exports = function(
     build: 'react-scripts build',
     test: 'react-scripts test --env=jsdom',
     eject: 'react-scripts eject',
+    'new-component': 'react-scripts new-component',
   };
 
   fs.writeFileSync(
@@ -99,7 +100,17 @@ module.exports = function(
     command = 'npm';
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
-  args.push('react', 'react-dom');
+  args.push(
+    'react',
+    'react-dom',
+    'redux',
+    'react-redux',
+    'redux-promise',
+    'bootstrap',
+    'prop-types',
+    'enzyme',
+    'enzyme-adapter-react-16'
+  );
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(

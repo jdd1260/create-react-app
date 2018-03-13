@@ -1,0 +1,13 @@
+import * as actions from './actions';
+
+export default function (state = {}, action) {
+  switch (action.type) {
+    case actions.ACTION_TYPE:
+      return {
+        ...state,
+        calls: (state.calls || 0) + 1,
+      };
+    default:
+      return state;
+  }
+}

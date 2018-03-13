@@ -8,6 +8,7 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const chalk = require('chalk');
 const paths = require('../../config/paths');
 
@@ -22,7 +23,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
   // in Jest configs. We need help from somebody with Windows to determine this.
   const config = {
     collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
-    setupFiles: [resolve('config/polyfills.js')],
+    setupFiles: [resolve('config/polyfills.js'), 'jest-context/setup'],
     setupTestFrameworkScriptFile: setupTestsFile,
     testMatch: [
       '<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}',
