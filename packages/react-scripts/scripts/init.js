@@ -105,6 +105,8 @@ module.exports = function(
     'react-redux',
     'redux-promise',
     'bootstrap',
+    'jquery',
+    'popper',
     'prop-types',
     'enzyme',
     'enzyme-adapter-react-16'

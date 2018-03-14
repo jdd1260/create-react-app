@@ -1,3 +1,5 @@
+'use strict';
+
 const promisify = require('bluebird').promisify;
 const readline = require('readline');
 

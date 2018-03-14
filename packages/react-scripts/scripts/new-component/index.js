@@ -1,3 +1,5 @@
+'use strict';
+
 const _ = require('lodash');
 const fs = require('fs');
 const handlebars = require('handlebars');
