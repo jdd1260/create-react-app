@@ -39,7 +39,8 @@ module.exports = function(
   appPackage.scripts = {
     start: 'react-scripts start',
     build: 'react-scripts build',
-    test: 'react-scripts test --env=jsdom',
+    test: 'npm run lint && react-scripts test --env=jsdom',
+    lint: 'eslint --ext=js .',
     eject: 'react-scripts eject',
     'new-component': 'react-scripts new-component',
   };
@@ -109,7 +110,14 @@ module.exports = function(
     'popper',
     'prop-types',
     'enzyme',
-    'enzyme-adapter-react-16'
+    'enzyme-adapter-react-16',
+    'eslint-config-react-app',
+    'babel-eslint@^7.2.3',
+    'eslint@^4.1.1',
+    'eslint-plugin-flowtype@^2.34.1',
+    'eslint-plugin-import@^2.6.0',
+    'eslint-plugin-jsx-a11y@^5.1.1',
+    'eslint-plugin-react@^7.1.0'
   );
 
   // Install additional template dependencies, if present
