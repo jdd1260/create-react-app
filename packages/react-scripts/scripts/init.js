@@ -101,8 +101,6 @@ module.exports = function(
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
   args.push(
-    'react',
-    'react-dom',
     'redux',
     'react-redux',
     'redux-promise',
