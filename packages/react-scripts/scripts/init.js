@@ -39,8 +39,10 @@ module.exports = function(
   appPackage.scripts = {
     start: 'react-scripts start',
     build: 'react-scripts build',
-    test: 'react-scripts test --env=jsdom',
+    test: 'npm run lint && react-scripts test --env=jsdom',
+    lint: 'eslint --ext=js .',
     eject: 'react-scripts eject',
+    'new-component': 'react-scripts new-component',
   };
 
   fs.writeFileSync(
@@ -89,17 +91,39 @@ module.exports = function(
     }
   );
 
-  let command;
-  let args;
+  function installDependencies(deps, isDev) {
+    let command;
+    let args;
 
-  if (useYarn) {
-    command = 'yarnpkg';
-    args = ['add'];
-  } else {
-    command = 'npm';
-    args = ['install', '--save', verbose && '--verbose'].filter(e => e);
+    if (useYarn) {
+      command = 'yarnpkg';
+      args = ['add'];
+      if (isDev) {
+        args.push('--dev');
+      }
+    } else {
+      command = 'npm';
+      args = ['install', verbose && '--verbose'].filter(e => e);
+      if (isDev) {
+        args.push('--save-dev');
+      } else {
+        args.push('--save');
+      }
+    }
+    args = args.concat(deps);
+
+    console.log(`Installing dependencies using ${command}...`);
+    console.log();
+
+    const proc = spawn.sync(command, args, { stdio: 'inherit' });
+    if (proc.status !== 0) {
+      console.error(`\`${command} ${args.join(' ')}\` failed`);
+      return;
+    }
   }
-  args.push('react', 'react-dom');
+
+  let dependencies = [];
+  let devDependencies = [];
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
@@ -108,7 +132,7 @@ module.exports = function(
   );
   if (fs.existsSync(templateDependenciesPath)) {
     const templateDependencies = require(templateDependenciesPath).dependencies;
-    args = args.concat(
+    dependencies = dependencies.concat(
       Object.keys(templateDependencies).map(key => {
         return `${key}@${templateDependencies[key]}`;
       })
@@ -119,16 +143,32 @@ module.exports = function(
   // Install react and react-dom for backward compatibility with old CRA cli
   // which doesn't install react and react-dom along with react-scripts
   // or template is presetend (via --internal-testing-template)
-  if (!isReactInstalled(appPackage) || template) {
-    console.log(`Installing react and react-dom using ${command}...`);
-    console.log();
-
-    const proc = spawn.sync(command, args, { stdio: 'inherit' });
-    if (proc.status !== 0) {
-      console.error(`\`${command} ${args.join(' ')}\` failed`);
-      return;
-    }
+  if (!isReactInstalled(appPackage)) {
+    dependencies.push('react', 'react-dom');
   }
+  dependencies.push(
+    'redux',
+    'react-redux',
+    'redux-promise',
+    'bootstrap',
+    'jquery',
+    'popper',
+    'prop-types'
+  );
+  devDependencies.push(
+    'enzyme',
+    'enzyme-adapter-react-16',
+    'eslint-config-react-app',
+    'babel-eslint@^7.2.3',
+    'eslint@^4.1.1',
+    'eslint-plugin-flowtype@^2.34.1',
+    'eslint-plugin-import@^2.6.0',
+    'eslint-plugin-jsx-a11y@^5.1.1',
+    'eslint-plugin-react@^7.1.0'
+  );
+
+  installDependencies(dependencies, false);
+  installDependencies(devDependencies, true);
 
   // Display the most elegant way to cd.
   // This needs to handle an undefined originalDirectory for
