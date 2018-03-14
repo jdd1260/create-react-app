@@ -6,7 +6,7 @@ import promise from 'redux-promise';
 
 import './index.scss';
 import reducers from './reducers';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './registerServiceWorker';
 
 const middleWareStore = applyMiddleware(promise)(createStore);
 
