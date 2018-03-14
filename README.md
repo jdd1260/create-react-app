@@ -13,6 +13,7 @@ Superpowered [Create React App](https://github.com/facebook/create-react-app).
 * [redux-promise](https://github.com/acdlite/redux-promise) is Redux middleware to add support for nice handling of promises. This is great when using REST APIs.
 * [prop-types](https://www.npmjs.com/package/prop-types) for defining and checking React prop types.
 * [Jest](https://facebook.github.io/jest/) with [Enzyme](https://github.com/airbnb/enzyme) all set up for easy React component testing.
+* [ESLint](https://eslint.org/) with Facebook's [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app) for style linting.
 
 Additionally, you are provided with a new tool to speed up development, not just the creation, of your project. You can quickly generate new components with all boilerplate completed for you. A component is made up of:
 * A Redux-connected component
@@ -80,6 +81,10 @@ Runs the test watcher in an interactive mode.<br>
 By default, runs tests related to files changed since the last commit.
 
 [Read more about testing.](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)
+
+### `npm run lint` or `yarn lint`
+
+This will run [ESLint](https://eslint.org/) on your JavaScript files. It runs the rules from Facebook's [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app). You can change the rules used by modifying `.eslintrc.json`.
 
 ### `npm run build` or `yarn build`
 

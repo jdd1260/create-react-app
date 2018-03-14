@@ -207,6 +207,10 @@ my-app/
 
 Your component (in `index.js`) is tested and comes plugged into the generated actions, which are connected to the reducer. The reducer is connected to the global state through `src/reducers.js`. Each of these files is functioning and tested right from the start. 
 
+### `npm run lint`
+
+This will run [ESLint](https://eslint.org/) on your JavaScript files. It runs the rules from Facebook's [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app). You can change the rules used by modifying `.eslintrc.json`.
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
