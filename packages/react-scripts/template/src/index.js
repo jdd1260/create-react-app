@@ -8,10 +8,10 @@ import './index.scss';
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
-const middleWareStore = applyMiddleware(promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
-  <Provider store={middleWareStore(reducers)}>
+  <Provider store={createStoreWithMiddleware(reducers)}>
     <div>Quickstart-React</div>
   </Provider>,
   document.getElementById('root')
