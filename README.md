@@ -12,6 +12,7 @@ Superpowered [Create React App](https://github.com/facebook/create-react-app).
 * [Bootstrap](http://getbootstrap.com/) for improved styling and mobile-first design.
 * [redux-promise](https://github.com/acdlite/redux-promise) is Redux middleware to add support for nice handling of promises. This is great when using REST APIs.
 * [prop-types](https://www.npmjs.com/package/prop-types) for defining and checking React prop types.
+* [Storybook](https://storybook.js.org/) for UI component development.
 * [Jest](https://facebook.github.io/jest/) with [Enzyme](https://github.com/airbnb/enzyme) all set up for easy React component testing.
 * [ESLint](https://eslint.org/) with Facebook's [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app) for style linting.
 
@@ -48,9 +49,9 @@ cd my-app
 Inside the newly created project, you can run some built-in commands:
 
 ### `npm run new-component` or `yarn new-component`
- 
-This tool is designed to speed the creation of new redux-connected components. It creates a new component in the `src/components` directory. You will be prompted for a component name. Then you have the option to create actions, a reducer, and an scss file for the component. If you were to give a component name of `Item` and agree to all options, your file structure will look like:
- 
+
+This tool is designed to speed the creation of new redux-connected components. It creates a new component in the `src/components` directory. You will be prompted for a component name. Then you have the option to create actions, a reducer, a .scss file, and a Storybook story for the component. If you were to give a component name of `Item` and agree to all options, your file structure will look like:
+
 ```
 my-app/
   src/
@@ -63,9 +64,10 @@ my-app/
         index.test.js
         reducer.js
         reducer.test.js
+        stories.js
 ```
- 
-Your component (in `index.js`) is tested and comes plugged into the generated actions, which are connected to the reducer. The reducer is connected to the global state through `src/reducers.js`. Each of these files is functioning and tested right from the start. 
+
+Your component (in `index.js`) is tested and comes plugged into the generated actions, which are connected to the reducer. The reducer is connected to the global state through `src/reducers.js`. Each of these files is functioning and tested right from the start.
 
 ### `npm start` or `yarn start`
 

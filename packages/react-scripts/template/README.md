@@ -12,7 +12,9 @@ You can find the most recent version of this guide [here](https://github.com/jdd
   - [npm start](#npm-start)
   - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
+  - [npm run storybook](#npm-run-storybook)
   - [npm run new-component](#npm-run-new-component)
+  - [npm run lint](#npm-run-lint)
   - [npm run eject](#npm-run-eject)
 - [Supported Browsers](#supported-browsers)
 - [Supported Language Features and Polyfills](#supported-language-features-and-polyfills)
@@ -187,9 +189,13 @@ Your app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
 
+#### `npm run storybook`
+
+Starts [Storybook](https://storybook.js.org/) for UI development. Will run all files ending in `stories.js`.
+
 ### `npm run new-component`
 
-This tool is designed to speed the creation of new redux-connected components. It creates a new component in the `src/components` directory. You will be prompted for a component name. Then you have the option to create actions, a reducer, and an scss file for the component. If you were to give a component name of `Item` and agree to all options, your file structure will look like:
+This tool is designed to speed the creation of new redux-connected components. It creates a new component in the `src/components` directory. You will be prompted for a component name. Then you have the option to create actions, a reducer, a .scss file, and a Storybook story for the component. If you were to give a component name of `Item` and agree to all options, your file structure will look like:
 
 ```
 my-app/
@@ -203,9 +209,10 @@ my-app/
         index.test.js
         reducer.js
         reducer.test.js
+        stories.js
 ```
 
-Your component (in `index.js`) is tested and comes plugged into the generated actions, which are connected to the reducer. The reducer is connected to the global state through `src/reducers.js`. Each of these files is functioning and tested right from the start. 
+Your component (in `index.js`) is tested and comes plugged into the generated actions, which are connected to the reducer. The reducer is connected to the global state through `src/reducers.js`. Each of these files is functioning and tested right from the start.
 
 ### `npm run lint`
 
