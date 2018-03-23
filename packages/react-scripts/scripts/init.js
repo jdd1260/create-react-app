@@ -43,6 +43,8 @@ module.exports = function(
     lint: 'eslint --ext=js .',
     eject: 'react-scripts eject',
     'new-component': 'react-scripts new-component',
+    storybook: 'start-storybook -p 6006',
+    'build-storybook': 'build-storybook',
   };
 
   fs.writeFileSync(
@@ -164,7 +166,12 @@ module.exports = function(
     'eslint-plugin-flowtype@^2.34.1',
     'eslint-plugin-import@^2.6.0',
     'eslint-plugin-jsx-a11y@^5.1.1',
-    'eslint-plugin-react@^7.1.0'
+    'eslint-plugin-react@^7.1.0',
+    '@storybook/addon-actions',
+    '@storybook/addon-links',
+    '@storybook/addons',
+    '@storybook/react',
+    'babel-core'
   );
 
   installDependencies(dependencies, false);
