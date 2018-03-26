@@ -171,7 +171,8 @@ module.exports = function(
     '@storybook/addon-links',
     '@storybook/addons',
     '@storybook/react',
-    'babel-core'
+    'babel-core',
+    'autoprefixer'
   );
 
   installDependencies(dependencies, false);
