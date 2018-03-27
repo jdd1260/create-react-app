@@ -1,0 +1,14 @@
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+
+import { {{ component }} } from '../{{ directory }}';
+
+import '../../index.scss';
+{{#if hasCss}}
+import './index.scss';
+{{/if}}
+
+storiesOf('{{ component }}', module)
+  .add('without props', () => (
+    <{{ component }} />
+  ));

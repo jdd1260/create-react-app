@@ -99,6 +99,14 @@ const run = co(function*() {
     buildFromTemplate('index.scss.tmpl', names, dirPath, '');
   }
 
+  if (yesNo(yield prompt('Do you want storybook stories? (Y/N) '))) {
+    buildFromTemplate(
+      'stories.tmpl',
+      Object.assign({}, names, { hasCss }),
+      dirPath
+    );
+  }
+
   // create index.js file and test
   buildFromTemplate(
     'index.tmpl',
