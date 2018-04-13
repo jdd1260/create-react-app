@@ -40,6 +40,7 @@ module.exports = function(
     start: 'react-scripts start',
     build: 'react-scripts build',
     test: 'npm run lint && react-scripts test --env=jsdom',
+    coverage: 'react-scripts test --env=jsdom --coverage',
     lint: 'eslint --ext=js .',
     eject: 'react-scripts eject',
     'new-component': 'react-scripts new-component',

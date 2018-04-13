@@ -78,8 +78,10 @@ You will see the build errors and lint warnings in the console.
 
 Runs the test watcher in an interactive mode.<br>
 By default, runs tests related to files changed since the last commit.
+You may also run `yarn coverage` to see an analysis of your test coverage.
 
-[Read more about testing.](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)
+
+[Read more about testing.](https://github.com/jdd1260/quickstart-react/blob/master/packages/react-scripts/template/README.md#running-tests)
 
 ### `yarn lint`
 

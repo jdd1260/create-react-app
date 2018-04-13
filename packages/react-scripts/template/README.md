@@ -169,6 +169,7 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](#running-tests) for more information.
+You may also run `yarn coverage` to see an analysis of your test coverage.
 
 ### `yarn build`
 
@@ -1323,7 +1324,7 @@ Similarly, `fit()` lets you focus on a specific test without running any other t
 ### Coverage Reporting
 
 Jest has an integrated coverage reporter that works well with ES6 and requires no configuration.<br>
-Run `yarn test -- --coverage` (note extra `--` in the middle) to include a coverage report like this:
+You may run `yarn coverage` to see a coverage report like this:
 
 ![coverage report](http://i.imgur.com/5bFhnTS.png)
 
@@ -1331,7 +1332,7 @@ Note that tests run much slower with coverage so it is recommended to run it sep
 
 #### Configuration
 
-The default Jest coverage configuration can be overriden by adding any of the following supported keys to a Jest config in your package.json.
+The default Jest coverage configuration can be overridden by adding any of the following supported keys to a Jest config in your package.json.
 
 Supported overrides:
  - [`collectCoverageFrom`](https://facebook.github.io/jest/docs/en/configuration.html#collectcoveragefrom-array)
