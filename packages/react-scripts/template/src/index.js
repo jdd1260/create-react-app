@@ -1,18 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import promise from 'redux-promise';
 
 import './index.scss';
-import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(applyMiddleware(promise)));
+import createStore from './create-store';
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={createStore()}>
     <div>Quickstart-React</div>
   </Provider>,
   document.getElementById('root')
